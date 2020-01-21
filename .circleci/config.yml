@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.4.1-node-browsers
+      - image: circleci/ruby:2.5.7-stretch-node-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -11,6 +11,7 @@ jobs:
           command: |
             npm install
             gem install percy-cli
+            node -v
       - run:
           name: run our tests
           command: |
